@@ -15,9 +15,6 @@
     .navbar {
       background: rgba(0,0,0,0.6);
       padding: 15px;
-      text-align: center;
-      position: sticky;
-      top: 0;
     }
 
     .navbar a {
@@ -32,11 +29,24 @@
     }
 
     .box {
-      margin-top: 100px;
+      margin-top: 80px;
       padding: 30px;
       border: 2px solid white;
       display: inline-block;
       border-radius: 10px;
+    }
+
+    .controls {
+      margin-top: 20px;
+    }
+
+    .controls button {
+      font-size: 25px;
+      padding: 15px;
+      margin: 10px;
+      border-radius: 10px;
+      border: none;
+      background: #00c6ff;
     }
   </style>
 </head>
@@ -46,14 +56,41 @@
 <div class="navbar">
   <a href="index.html">Home</a>
   <a href="game.html">Game</a>
+  <a href="about.html">About</a>
 </div>
 
 <h1>🎮 My Game</h1>
 
 <div class="box">
   <h2>Game Coming Soon 🚀</h2>
-  <p>Mera game jaldi launch hoga 😎</p>
 </div>
+
+<!-- 🎮 Controls -->
+<div class="controls">
+  <button onclick="moveLeft()">⬅️</button>
+  <button onclick="moveRight()">➡️</button>
+  <button onclick="jump()">⬆️</button>
+</div>
+
+<script>
+function moveLeft() {
+  alert("Move Left ⬅️");
+}
+
+function moveRight() {
+  alert("Move Right ➡️");
+}
+
+function jump() {
+  alert("Jump ⬆️");
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "ArrowLeft") moveLeft();
+  if (event.key === "ArrowRight") moveRight();
+  if (event.key === "ArrowUp") jump();
+});
+</script>
 
 </body>
 </html>
