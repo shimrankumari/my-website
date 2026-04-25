@@ -1,96 +1,69 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html>
 <head>
-  <title>My Game 🎮</title>
+  <title>Game 🎮</title>
 
   <style>
     body {
-      margin: 0;
-      background: linear-gradient(135deg, #000428, #004e92, #00c6ff);
+      background: black;
       color: white;
       text-align: center;
       font-family: Arial;
     }
 
-    .navbar {
-      background: rgba(0,0,0,0.6);
-      padding: 15px;
-    }
-
-    .navbar a {
-      color: white;
-      margin: 0 20px;
-      text-decoration: none;
-      font-size: 20px;
-    }
-
-    .navbar a:hover {
-      color: #00c6ff;
-    }
-
-    .box {
-      margin-top: 80px;
-      padding: 30px;
-      border: 2px solid white;
-      display: inline-block;
-      border-radius: 10px;
-    }
-
-    .controls {
+    h1 {
       margin-top: 20px;
     }
 
-    .controls button {
-      font-size: 25px;
-      padding: 15px;
-      margin: 10px;
-      border-radius: 10px;
-      border: none;
+    .game-box {
+      width: 300px;
+      height: 300px;
+      background: #111;
+      margin: 50px auto;
+      position: relative;
+      border: 2px solid #00c6ff;
+      box-shadow: 0 0 20px #00c6ff;
+    }
+
+    .player {
+      width: 30px;
+      height: 30px;
       background: #00c6ff;
+      position: absolute;
+      top: 130px;
+      left: 130px;
+      border-radius: 5px;
     }
   </style>
 </head>
 
 <body>
 
-<div class="navbar">
-  <a href="index.html">Home</a>
-  <a href="game.html">Game</a>
-  <a href="about.html">About</a>
-</div>
-
 <h1>🎮 My Game</h1>
 
-<div class="box">
-  <h2>Game Coming Soon 🚀</h2>
+<div class="game-box">
+  <div class="player" id="player"></div>
 </div>
 
-<!-- 🎮 Controls -->
-<div class="controls">
-  <button onclick="moveLeft()">⬅️</button>
-  <button onclick="moveRight()">➡️</button>
-  <button onclick="jump()">⬆️</button>
-</div>
+<p>Use Arrow Keys ⬅️➡️⬆️</p>
 
 <script>
-function moveLeft() {
-  alert("Move Left ⬅️");
-}
+let player = document.getElementById("player");
+let x = 130;
+let y = 130;
 
-function moveRight() {
-  alert("Move Right ➡️");
-}
+document.addEventListener("keydown", function(e) {
+  if (e.key === "ArrowLeft") x -= 10;
+  if (e.key === "ArrowRight") x += 10;
+  if (e.key === "ArrowUp") y -= 10;
+  if (e.key === "ArrowDown") y += 10;
 
-function jump() {
-  alert("Jump ⬆️");
-}
-
-document.addEventListener("keydown", function(event) {
-  if (event.key === "ArrowLeft") moveLeft();
-  if (event.key === "ArrowRight") moveRight();
-  if (event.key === "ArrowUp") jump();
+  player.style.left = x + "px";
+  player.style.top = y + "px";
 });
 </script>
 
 </body>
 </html>
+  
