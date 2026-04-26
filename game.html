@@ -37,17 +37,16 @@
 
     /* 🌵 CACTUS */
     .obstacle {
-      width: 40px;
-      height: 60px;
+      width: 60px;
+      height: 80px;
       background: url("cactus.png") no-repeat center;
       background-size: contain;
       position: absolute;
       bottom: 0;
       right: 0;
-
       --speed: 3s;
       animation: move var(--speed) linear infinite;
-    }
+    image-rendering: auto;} 
 
     @keyframes move {
       from { right: -40px; }
@@ -139,7 +138,7 @@ let gameLoop = setInterval(() => {
   let playerBottom = parseInt(window.getComputedStyle(player).getPropertyValue("bottom"));
   let obstacleLeft = parseInt(window.getComputedStyle(obstacle).getPropertyValue("left"));
 
-  if (obstacleLeft > 60 && obstacleLeft < 100 && playerBottom < 40) {
+  if (obstacleLeft > 80 && obstacleLeft < 110 && playerBottom < 40) {
 
     isGameOver = true;
 
